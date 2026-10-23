@@ -1,1 +1,524 @@
 
+/* ===== ZÁKLADNÍ NASTAVENÍ ===== */
+
+:root {
+    --background: #101114;
+    --surface: #191a1f;
+    --surface-light: #22242b;
+    --text: #f5f5f5;
+    --muted: #a6a7ae;
+    --accent: #ff3b30;
+    --border: #303139;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
+}
+
+p {
+    color: var(--muted);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.8rem, 7vw, 5.8rem);
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: -1px;
+}
+
+h1 span,
+h2 span {
+    color: var(--accent);
+}
+
+/* ===== HORNÍ MENU ===== */
+
+.header {
+    min-height: 82px;
+    padding: 18px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid var(--border);
+    background: #101114;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: var(--accent);
+}
+
+/* ===== HLAVNÍ ÚVOD ===== */
+
+.hero {
+    min-height: 570px;
+    padding: 75px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.eyebrow {
+    margin-bottom: 16px;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin-bottom: 24px;
+}
+
+.hero-text {
+    max-width: 480px;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    height: 390px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.image-label {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    padding: 8px 13px;
+    background: rgba(16, 17, 20, 0.9);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ===== TLAČÍTKA A ODKAZY ===== */
+
+.button {
+    display: inline-block;
+    padding: 13px 22px;
+    background: var(--accent);
+    color: white;
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.button:hover {
+    background: transparent;
+    color: var(--accent);
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.text-link:hover {
+    color: white;
+}
+
+/* ===== SEKCE A KARTY ===== */
+
+.section {
+    padding: 75px 7%;
+}
+
+.section-heading {
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+}
+
+.section-heading h2 {
+    max-width: 650px;
+}
+
+.section-description {
+    max-width: 350px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.card img {
+    height: 220px;
+}
+
+.card-content {
+    padding: 24px;
+}
+
+.number {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.card h3 {
+    margin: 8px 0 12px;
+    font-size: 1.3rem;
+}
+
+.card-content p {
+    font-size: 0.93rem;
+}
+
+/* ===== ZÁVĚREČNÁ VÝZVA ===== */
+
+.quote-section {
+    padding: 90px 7%;
+    text-align: center;
+    background:
+        linear-gradient(rgba(16, 17, 20, 0.94), rgba(16, 17, 20, 0.94)),
+        url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=85")
+        center / cover;
+}
+
+.quote-section h2 {
+    margin-bottom: 28px;
+    font-size: clamp(2rem, 5vw, 3.7rem);
+}
+
+/* ===== ÚVOD PODSTRÁNEK ===== */
+
+.page-hero {
+    padding: 85px 7% 60px;
+    text-align: center;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.page-hero h1 {
+    font-size: clamp(2.3rem, 6vw, 4.5rem);
+}
+
+.page-hero > p:last-child {
+    margin-top: 18px;
+}
+
+/* ===== PŘEHLED ZÁVODNÍCH HER ===== */
+
+.game-list {
+    display: grid;
+    gap: 30px;
+}
+
+.game-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.game-card img {
+    min-height: 300px;
+    height: 100%;
+}
+
+.game-info {
+    padding: 35px;
+    align-self: center;
+}
+
+.game-info h2 {
+    margin-bottom: 18px;
+}
+
+.game-info p:not(.eyebrow) {
+    margin-bottom: 12px;
+}
+
+/* ===== GALERIE ===== */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.gallery-item {
+    min-width: 0;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.gallery-item img {
+    height: 280px;
+    transition: transform 0.35s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-item figcaption {
+    position: relative;
+    padding: 15px 18px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.gallery-large {
+    grid-column: 1 / -1;
+}
+
+.gallery-large img {
+    height: 440px;
+}
+
+/* ===== ZDROJE A CITACE ===== */
+
+.sources-section {
+    padding: 75px 7%;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+}
+
+.sources-section h2 {
+    margin-bottom: 35px;
+}
+
+.sources-section h3 {
+    margin: 30px 0 12px;
+    font-size: 1.3rem;
+}
+
+.sources-section p {
+    margin-bottom: 15px;
+}
+
+.source-list {
+    padding-left: 24px;
+    color: var(--muted);
+}
+
+.source-list li {
+    margin-bottom: 10px;
+}
+
+.source-list a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.source-list a:hover {
+    color: white;
+}
+
+.note {
+    margin-top: 30px;
+    padding: 18px;
+    border-left: 3px solid var(--accent);
+    background: var(--background);
+}
+
+/* ===== PATIČKA ===== */
+
+.footer {
+    padding: 35px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    border-top: 1px solid var(--border);
+}
+
+.footer p,
+.footer > a:not(.logo) {
+    font-size: 0.82rem;
+}
+
+.footer > a:not(.logo):hover {
+    color: var(--accent);
+}
+
+/* ===== MOBILNÍ TELEFONY A TABLETY ===== */
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .hero-image img {
+        height: 350px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .game-info {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 18px 5%;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .menu {
+        gap: 18px;
+    }
+
+    .hero,
+    .section,
+    .sources-section {
+        padding: 50px 5%;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .hero-image img {
+        height: 250px;
+    }
+
+    .cards,
+    .gallery,
+    .game-card {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-large {
+        grid-column: auto;
+    }
+
+    .gallery-item img,
+    .gallery-large img {
+        height: 250px;
+    }
+
+    .game-card img {
+        min-height: 0;
+        height: 240px;
+    }
+
+    .page-hero {
+        padding: 60px 5% 45px;
+    }
+
+    .footer {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 30px 5%;
+    }
+}
+
